@@ -183,7 +183,7 @@ def chat(messages: list, df: pd.DataFrame, secrets: dict, status_callback=None) 
             status_callback(model)
         try:
             client   = OpenAI(api_key=api_key, base_url=base_url)
-            extra = {} if key_name == "LOCAL_MODEL_URL" else {"parallel_tool_calls": True}
+            extra = {} if key_name in ("LOCAL_MODEL_URL", "GEMINI_API_KEY") else {"parallel_tool_calls": True}
             response = client.chat.completions.create(
                 model=model, messages=api_messages, tools=TOOLS,
                 tool_choice="required", max_tokens=1024, timeout=15, **extra,
