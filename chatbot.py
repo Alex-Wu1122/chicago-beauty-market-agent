@@ -6,9 +6,9 @@ from openai import OpenAI
 # ── Provider config ────────────────────────────────────────────────────────────
 _MODEL_CHAIN = [
     {"base_url": "https://generativelanguage.googleapis.com/v1beta/openai/", "model": "models/gemini-2.5-flash",        "key_name": "GEMINI_API_KEY"},
-    {"base_url": "https://api.groq.com/openai/v1",   "model": "llama-3.1-8b-instant",    "key_name": "GROQ_API_KEY"},
-    {"base_url": "https://api.cerebras.ai/v1",        "model": "llama3.1-8b",             "key_name": "CEREBRAS_API_KEY"},
     {"base_url": "https://api.groq.com/openai/v1",   "model": "llama-3.3-70b-versatile", "key_name": "GROQ_API_KEY"},
+    {"base_url": "https://api.cerebras.ai/v1",        "model": "llama3.1-8b",             "key_name": "CEREBRAS_API_KEY"},
+    {"base_url": "https://api.groq.com/openai/v1",   "model": "llama-3.1-8b-instant",    "key_name": "GROQ_API_KEY"},
     {"base_url": "https://saniya-briary-xerographically.ngrok-free.dev/v1",  "model": "qwen2.5-7b-instruct-1m",  "key_name": "LOCAL_MODEL_URL"},
 ]
 
