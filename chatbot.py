@@ -184,9 +184,10 @@ def chat(messages: list, df: pd.DataFrame, secrets: dict, status_callback=None) 
         try:
             client   = OpenAI(api_key=api_key, base_url=base_url)
             extra = {} if key_name in ("LOCAL_MODEL_URL", "GEMINI_API_KEY") else {"parallel_tool_calls": True}
+            max_tok = 8192 if key_name == "GEMINI_API_KEY" else 1024
             response = client.chat.completions.create(
                 model=model, messages=api_messages, tools=TOOLS,
-                tool_choice="required", max_tokens=1024, timeout=15, **extra,
+                tool_choice="required", max_tokens=max_tok, timeout=30, **extra,
             )
             if not response.choices:
                 print(f"[chatbot] raw response: {response}")
